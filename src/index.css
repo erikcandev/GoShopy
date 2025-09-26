@@ -1,0 +1,404 @@
+/* Variáveis de cores */
+:root {
+  --primary-dark: #1b4332;
+  --primary-medium: #74c69d;
+  --primary-hover: #49793d;
+  --text-light: #f8f9fa;
+  --card-bg: #f8f9fa;
+  --card-border: #6c584c;
+  --text-dark: #1b4332;
+}
+
+/* Reset e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: #fff;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Estilos do Header */
+header {
+  background-color: var(--primary-dark);
+  padding: 1rem 2rem;
+  color: var(--text-light);
+  position: relative; /* Mudança: de 'fixed' para 'relative' para simplificar */
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  text-decoration: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
+.logo span {
+  color: var(--primary-medium);
+}
+
+/* O espaçador garante que a logo fique centralizada mesmo com o botão do menu visível */
+.spacer {
+  width: 40px; /* Deve ter a mesma largura do botão de menu */
+  height: 1px;
+}
+
+/* Estilo do botão do menu (sempre visível) */
+.menu-toggle {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0.5rem;
+  display: flex; /* Sempre visível */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estiliza o menu sanduíche, posicionando-o fora da tela por padrão */
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: -100%; /* Começa fora da tela */
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--primary-dark);
+  padding: 5rem 2rem 2rem;
+  z-index: 999;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease-in-out; /* Animação de deslize */
+}
+
+/* Quando aberto, o menu desliza para dentro da tela */
+.nav-menu.open {
+  left: 0;
+}
+
+.nav-menu ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: block;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: var(--primary-medium);
+}
+
+/* Overlay (para o menu sanduíche) */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0; /* Começa invisível */
+  pointer-events: none; /* Não pode ser clicado quando invisível */
+  transition: opacity 0.3s ease-in-out; /* Animação de fade */
+}
+
+/* Mostra o overlay quando a classe .visible é aplicada */
+.nav-overlay.visible {
+  opacity: 1;
+  pointer-events: auto; /* Permite o clique para fechar */
+}
+
+/* Estilos do Hero */
+.hero {
+  background-color: var(--card-bg);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* Estilos dos Botões */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-dark);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+  background-color: var(--primary-medium);
+  color: white;
+  margin-left: 1rem;
+}
+
+.btn-secondary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos dos Cards */
+
+.card-link {
+  text-decoration: none; /* Remove o sublinhado do link */
+  color: inherit; /* Garante que o texto do card mantenha sua cor original */
+}
+.projects {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-content {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.card h3 {
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  font-size: 2rem;
+  color: var(--primary-medium);
+  margin-bottom: 1rem;
+}
+
+/* Estilos do Footer */
+footer {
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+  padding: 2rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: var(--primary-medium);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+
+/* Estilos da Página de Serviços */
+.services-page .page-header {
+  text-align: center;
+  padding: 4rem 2rem 2rem;
+  background-color: var(--card-bg);
+}
+
+.services-page .page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-section {
+  padding: 4rem 2rem;
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Adiciona um atraso ao segundo elemento animado dentro de uma seção */
+.service-content .animate-on-scroll:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.service-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.service-image {
+  flex: 1;
+}
+
+.service-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.service-details {
+  flex: 1;
+}
+
+.service-details h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Cores e Layout Alternados */
+.section-even {
+  background-color: #fff;
+  color: var(--text-dark);
+}
+
+.section-odd {
+  background-color: var(--primary-dark);
+  color: var(--text-light);
+}
+
+.section-odd .service-details h2 {
+  color: var(--primary-medium);
+}
+
+.section-odd .service-content {
+  flex-direction: row-reverse; /* Inverte a ordem da imagem e do texto */
+}
+
+/* Responsividade da Página de Serviços */
+@media (max-width: 768px) {
+  .service-content {
+    flex-direction: column !important; /* Força a coluna em telas pequenas, sobrepondo o row-reverse */
+    gap: 2rem;
+  }
+}
+
+/* Ajustes gerais de responsividade */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .btn-secondary {
+    margin-left: 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
