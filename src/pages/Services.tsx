@@ -3,6 +3,9 @@ import { servicesData } from '../data/services';
 
 const Services = () => {
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -18,7 +21,14 @@ const Services = () => {
     const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
     elementsToAnimate.forEach((el) => observer.observe(el));
 
-    return () => elementsToAnimate.forEach((el) => observer.unobserve(el));
+    return () => {
+      elementsToAnimate.forEach((el) => {
+        if (observer) {
+          observer.unobserve(el);
+        }
+      });
+      observer.disconnect();
+    };
   }, []);
 
   return (

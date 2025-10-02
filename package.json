@@ -2,7 +2,9 @@
   "$schema": "https://json.schemastore.org/package",
   "name": "goshopy",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Landing page moderna para e-commerce com React, TypeScript e Vite",
+  "author": "Erik",
   "type": "module",
   "scripts": {
     "dev": "vite",
