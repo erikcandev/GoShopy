@@ -1,13 +1,6 @@
 # Changelog
+## [1.0.0] - 2025-02-10
 
-Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
-
-O formato é baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.0.0/),
-e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
-
-## [1.0.0] - 2025-10-02
-
-### 🎉 Lançamento Inicial
 
 #### ✨ Adicionado
 - Estrutura base do projeto com React 19 + TypeScript + Vite
@@ -52,41 +45,5 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ---
 
-## [Não Lançado]
 
-### 🔮 Planejado para Futuras Versões
 
-#### v1.1.0
-- [ ] Testes unitários com Vitest
-- [ ] Testes E2E com Playwright
-- [ ] Modo escuro (dark theme)
-- [ ] Animações com Framer Motion
-
-#### v1.2.0
-- [ ] Backend simulado com JSON Server
-- [ ] Formulário de contato funcional
-- [ ] Newsletter subscription
-- [ ] Blog/Notícias
-
-#### v2.0.0
-- [ ] Carrinho de compras funcional
-- [ ] Sistema de autenticação
-- [ ] Painel administrativo
-- [ ] Integração com gateway de pagamento
-
----
-
-## Tipos de Mudanças
-
-- `✨ Adicionado` - Novas funcionalidades
-- `🔧 Modificado` - Mudanças em funcionalidades existentes
-- `🗑️ Removido` - Funcionalidades removidas
-- `🐛 Corrigido` - Correções de bugs
-- `🔒 Segurança` - Melhorias de segurança
-- `📝 Documentação` - Mudanças na documentação
-- `⚡ Performance` - Melhorias de performance
-- `♻️ Refatoração` - Refatoração de código
-
----
-
-[1.0.0]: https://github.com/seu-usuario/goshopy/releases/tag/v1.0.0
