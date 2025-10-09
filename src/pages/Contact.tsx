@@ -44,8 +44,8 @@ const Contact = () => {
     }, 1500);
   };
 
-  const whatsappNumber = '5511999999999'; // Número fictício
-  const whatsappMessage = encodeURIComponent('Olá! Gostaria de saber mais sobre os serviços da GoShopy.');
+  const whatsappNumber = '5549992020704';
+  const whatsappMessage = encodeURIComponent('Olá! Gostaria de saber mais sobre seus serviços!');
 
   return (
     <main className="contact-page">
@@ -208,18 +208,16 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-
               {/* WhatsApp CTA */}
               <div className="whatsapp-cta">
                 <h3>Prefere conversar pelo WhatsApp?</h3>
                 <a
-                  href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-whatsapp"
                 >
                   <IconBrandWhatsapp size={24} />
-                  Chamar no WhatsApp
                 </a>
               </div>
 
@@ -234,7 +232,7 @@ const Contact = () => {
                   <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" title="Facebook">
                     <IconBrandFacebook size={24} />
                   </a>
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                  <a href="https://www.linkedin.com/in/erikdomingoscandido/" target="_blank" rel="noopener noreferrer" title="LinkedIn">
                     <IconBrandLinkedin size={24} />
                   </a>
                 </div>
