@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { useState } from 'react';
 import { IconMenu2, IconX } from '@tabler/icons-react';
 import Home from './pages/Home';
